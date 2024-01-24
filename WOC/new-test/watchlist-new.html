@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Watchlist</title>
+</head>
+<body>
+
+  <div id="movieDetails">
+    
+  </div>
+
+  <!-- Watchlist button -->
+  <button onclick="addToWatchlist()">Add to Watchlist</button>
+
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js"></script>
+
+  <script type="module">
+   const firebaseConfig = {
+  apiKey: "AIzaSyABXG2VmTw80woZUq6TQD8Xc84fiYrpIF8",
+  authDomain: "auth-form-de806.firebaseapp.com",
+  projectId: "auth-form-de806",
+  storageBucket: "auth-form-de806.appspot.com",
+  messagingSenderId: "900423098287",
+  appId: "1:900423098287:web:cde7d1384a0c2886f7d95a"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+var auth = firebase.auth();
+
+   var db = firebase.firestore(); 
+
+    // Function to fetch movie details using an API (replace with your API endpoint)
+    async function fetchMovieDetails(movieId) {
+      const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=64aaf7502b09faf378927950ce658ad3`);
+      const data = await response.json();
+      return data;
+    }
+
+    // Function to display movie details
+    async function displayMovieDetails(movieId) {
+      const movieDetails = await fetchMovieDetails(movieId);
+
+      // Display movie details in the #movieDetails div (replace with your own HTML structure)
+      document.getElementById('movieDetails').innerHTML = `
+        <h2>${movieDetails.title}</h2>
+        <p>Release Date: ${movieDetails.release_date}</p>
+        <p>Language: ${movieDetails.original_language}</p>
+        <p>Vote: ${movieDetails.vote_average}</p>
+        <p>Popularity: ${movieDetails.popularity}</p>
+        <!-- Add other details as needed -->
+      `;
+    }
+
+    // Function to add movie to Firestore watchlist
+    function addToWatchlist() {
+      // Get the movie details (replace 'YOUR_MOVIE_ID' with the actual movie ID)
+      const movieId = 'YOUR_MOVIE_ID';
+
+      // Call the function to display movie details
+      displayMovieDetails(movieId);
+
+      // Add movie details to Firestore
+      db.collection('watchlist').add({
+        title: movieDetails.title,
+        releaseDate: movieDetails.release_date,
+        language: movieDetails.original_language,
+        vote: movieDetails.vote_average,
+        id: movieDetails.id,
+        popularity: movieDetails.popularity,
+        // Add other details as needed
+      })
+      .then(() => {
+        alert('Movie added to watchlist!');
+      })
+      .catch((error) => {
+        console.error('Error adding movie to watchlist: ', error);
+      });
+    }
+  </script>
+
+</body>
+</html>

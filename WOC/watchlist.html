@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="logo-one-stop-movie.jpg">
+    <title>Watchlist-MovieHouse</title>
+    <link rel="stylesheet" href="watchlist-css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+     integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
+     crossorigin="anonymous">
+</head>
+<body>
+	<header>
+    <div class="logo">
+      <a href="#"><img src="logo-one-stop-movie.jpg" alt=""></a>
+    </div>   
+    <form>
+      <input type="text" id="search-movie" placeholder="Search favourites..." class="search">
+    </form>
+    <span class="name">Watchlist</span>
+	</header>
+
+    <div id="wrapper">    
+		<ul id="movie-list">
+
+			<li>
+				<!-- <span class="title">Matrix</span>
+				<span class="delete">delete</span> -->
+        <div> 
+          <div class="favcard">
+            <img src="rebel-moon.jpg" alt="">
+          </div>  
+          <div class="content">  
+            <h3 class="title">Rebel Moon</h3>
+            <p>Action, Drama, Fantsy</p>
+            <h6><span>TMDB</span> <i class="bi bi-star-fill"></i> 9.0 / 10</h6>
+          </div>
+        </div>  
+        <span class="delete">delete</span> 
+			</li>
+      
+			<li>
+				<!-- <span class="title">Matrix</span>
+				<span class="delete">delete</span> -->
+        <div> 
+          <div class="favcard">
+            <img src="rebel-moon.jpg" alt="">
+          </div>  
+          <div class="content">  
+            <h3 class="title">Rebel Moon</h3>
+            <p>Action, Drama, Fantsy</p>
+            <h6><span>TMDB</span> <i class="bi bi-star-fill"></i> 9.0 / 10</h6>
+          </div>
+        </div>  
+        <span class="delete">delete</span> 
+			</li>
+
+		</ul>
+		<form id="add-movie">
+			<div class="checkbox-div">
+				<input type="checkbox" id ="hide" hidden>
+				<label for="hide"><i class="bi bi-trash-fill"></i> Hide All </label>
+			</div>
+			<input type="text" placeholder="Add a movie" id="add-input">
+			<button id="listbtn"><i class="bi bi-plus-lg"></i> Add</button>
+		</form>
+	</div>
+
+    <div class="footer-dark">
+        <footer>
+            <div class="container-footer">
+                <div class="row">
+                  <div>
+                    <div>
+                      <div class="item coab">
+                        <h3>Contents</h3>
+                        <ul>
+                            <li><a href="Movie-website-2.html#pm">For You</a></li>
+                            <li><a href="Movie-website-2.html#pm">Movies</a></li>
+                            <li><a href="Movie-website-2.html#attv">TV Shows</a></li>
+                        </ul>
+                      </div>
+                      <div class="item coab">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">CineCoder</a></li>
+                            <li><a href="mailto:priyanshkeshari01@gmail.com?subject=Help">Help Center</a></li>
+                            <li><a href="mailto:priyanshkeshari01@gmail.com?subject=Privacy Complaint">Privacy Complaint</a></li>
+                        </ul>
+                      </div>
+                    </div>  
+                   <div class="item text">
+                        <h3>MovieHouse</h3>
+                        <p>Step into the reel world of entertainment at MovieHouse, where every frame tells a story and every click unfolds a cinematic journey!</p>
+                   </div>
+                  </div>
+                  <div class="item social">
+                        <a href="https://youtube.com/@Priyansh-go2us?si=zVF1jIqgxeYCBZBu"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/priyansh-keshari-0b3240287"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://www.instagram.com/keshari_priyansh?igsh=OTN6bXdjbmdla2F1"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+                <p class="copyright">MovieHouse © 2024</p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="watchlist-js.js"></script> 
+</body>
+</html>

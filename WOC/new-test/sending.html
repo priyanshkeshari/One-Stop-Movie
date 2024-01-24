@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+     integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
+     crossorigin="anonymous">
+  <title>Movie Cards</title>
+  <style>
+    *{
+    padding: 0;
+    margin: 0;
+    font-family: Rubik, sans-serif;
+}
+
+:root {
+    --red: #ef233c;
+    --darkred: #c00424;
+    --platinum: #e5e5e5;
+    --black: #2b2d42;
+    --white: #fff;
+    --thumb: #edf2f4;
+    --webcolor: #FDE5D9;
+}
+
+/*cards*/
+.home{
+    transform: translate3d(0,0,0);
+    width: 100vw;
+    background: var(--platinum);
+}
+
+.container {
+    font: 16px / 24px "Rubik", sans-serif;
+    max-width: 1400px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    color: var(--black);
+    background: var(--platinum);
+    margin-left: 1.5vw;
+    margin-bottom: 50px;
+  }
+  
+  .container h2 {
+    font-size: 24px;
+    margin-bottom: 1em;
+    line-height: 36px;
+  }
+  
+  .cards {
+    display: flex;
+    padding: 20px 0px;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    padding: 20px;
+    background: no-repeat center center/cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    scroll-snap-align: start;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    width: 255px;
+    height: 400px;
+  }
+  
+  .card:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .card:hover {
+    color: var(--white);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 45%)
+  }
+  
+  .card .card-top{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card .card-top .card-title {
+    font-size: 16px;
+    background: linear-gradient(90deg, #30BBCE,#01B4E5);
+    display: inline-block;
+    padding: 4px;
+    margin-right: 8px;
+    border-radius: 8px;
+    line-height: 40px;
+  }
+
+  .card .card-top label {
+    font-size: 20px;
+    color: var(--red);
+    background: var(--white);
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .card:hover .card-top label {
+    background-color: var(--red);
+    color: var(--white);
+  }
+
+  #watch1:checked  {
+    background-color: var(--darkred);
+  }
+
+  .card .card-top label:hover{
+    transform: scale(1.05);
+  }
+
+  .card .card-link-wrapper {
+    margin-top: auto;
+  }
+
+  .card .card-link-wrapper button i{
+    margin-right: 5px;
+  }
+
+  .card .card-link-wrapper button{
+    transition: all 0.3s;
+  }
+
+  .card .card-link-wrapper button:hover{
+    transform: scale(1.05);
+  }
+
+  .card .card-link-wrapper h4{
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    width: fit-content;
+    padding: 3px 6px;
+    border-radius: 8px;
+  }
+
+  .card .card-link-wrapper h4 span{
+    word-break: break-all;
+    word-spacing: 1px;
+    letter-spacing: 2px;
+  }
+
+  .card .card-link-wrapper h4 i{
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .card .card-link-wrapper h3{
+    font-size: 16px;
+    word-spacing: 1.2px;
+    letter-spacing: 0.7x;
+    color: var(--thumb);
+    backdrop-filter: blur(8px);
+    width: fit-content;
+    padding: 3px 6px;
+    border-radius: 8px;
+    line-height: 15px;
+  }
+  
+  .card .card-link-wrapper h5{
+    font-size: 14px;
+    word-spacing: 1.2px;
+    letter-spacing: 0.7x;
+    color: var(--thumb);
+    backdrop-filter: blur(8px);
+    width: fit-content;
+    padding: 3px 6px;
+    border-radius: 8px;
+    line-height: 10px;
+  }
+
+  .card .card-link {
+    font-size: 16px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--red);
+    padding: 8.75px 9.781px;
+    border-radius: 8px;
+    transition: background 0.3s;
+    outline: none;
+    border: none;
+  }
+  
+  .card:hover .card-link {
+    background: var(--darkred);
+  }
+  
+  .cards::-webkit-scrollbar {
+    height: 12px;
+  }
+  
+  .cards::-webkit-scrollbar-thumb,
+  .cards::-webkit-scrollbar-track {
+    border-radius: 92px;
+  }
+  
+  .cards::-webkit-scrollbar-thumb {
+    background: var(--darkred);
+  }
+  
+  .cards::-webkit-scrollbar-track {
+    background: var(--thumb);
+  }
+
+ /*cards number*/
+  
+ @media (min-width: 350px) {
+    .card {
+      flex-basis: calc(50% - 10px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 20px;
+    }
+}
+  
+  
+@media (min-width: 500px) {
+    .card {
+      flex-basis: calc((100% / 2) -10px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    header span{
+     display: none;
+    }
+    .top{
+     display: none;
+    }
+    .line{
+     display: initial;
+    }
+    #nav_check:checked ~ div.mini{
+     left: 0px;
+    }
+    
+ } 
+
+@media (min-width: 700px) {
+    .card {
+      flex-basis: calc(calc(100% / 3) - 20px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .card {
+      flex-basis: calc(calc(100% / 4) - 25px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  
+@media (min-width: 1100px) {
+    .card {
+      flex-basis: calc(20% - 32px);
+    }
+  
+    .card:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+ 
+
+  </style>
+</head>
+<body>
+
+    <section class="home">
+        <div class="container" id="pm">
+            <h2>Popular Movies</h2>
+            <ul class="cards" id="pmc">
+  
+            </ul>
+          </div>
+    </section>      
+
+  <script>
+const img_path = 'https://image.tmdb.org/t/p/w500';
+
+const movie_popular = 'https://api.themoviedb.org/3/movie/popular?api_key=64aaf7502b09faf378927950ce658ad3';
+
+    async function fetchMovieData() {
+      const response = await fetch(movie_popular);
+      const data = await response.json();
+      return data.results;
+    }
+
+    async function displayMovieCards() {
+      const movieData = await fetchMovieData();
+      const pmcontainer = document.getElementById('pmc');
+
+      movieData.forEach(movie => {
+        const pmCard = document.createElement('li');
+        pmCard.classList.add('card');
+        
+        pmCard.dataset.originalTitle = movie.original_title;
+        pmCard.dataset.vote = movie.vote_average;
+        pmCard.dataset.language = movie.original_language;
+        pmCard.dataset.adult = movie.adult;
+        pmCard.dataset.releaseDate = movie.release_date;
+        pmCard.dataset.popularity = movie.popularity;
+        pmCard.dataset.voteCount = movie.vote_count;
+        pmCard.dataset.id = movie.id;
+        pmCard.dataset.overview = movie.overview;
+        pmCard.dataset.title = movie.title;
+        pmCard.dataset.posterPath = movie.poster_path;
+
+        pmCard.innerHTML = `
+    <li class="card" style="background: url('${img_path + movie.poster_path}') no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+        scroll-snap-align: start;
+        transition: all 0.2s;
+        box-sizing: border-box;
+        width: 116%;
+        height: auto;
+        transform: translateX(-6.9%);">
+    
+        <div class="card-top">
+            <h3 class="card-title">TMDB</h3>
+            <input type="checkbox" name="watchlist"  hidden><label for="watch1"><i class="bi bi-bookmark-star"></i></label>
+        </div>
+        <div class="card-link-wrapper">
+            <h3>${movie.title}</h3>
+            <h5>${movie.release_date}</h5>
+            <h4 class="vote"><i class="bi bi-star-fill"></i><span> ${movie.vote_average} / 10</span></h4>
+            <button onclick="navigateToSecondPage('${movie.id}')" class="card-link">
+                <i class="bi bi-play-fill"></i> Watch
+            </button>
+        </div>
+  </li>
+        `;
+        pmcontainer.appendChild(pmCard);
+      });
+    }
+
+    
+    function navigateToSecondPage(movieId) {
+      const movieCardElement = document.querySelector(`[data-id="${movieId}"]`);
+
+      const originalTitle = movieCardElement.dataset.originalTitle;
+      const vote = movieCardElement.dataset.vote;
+      const language = movieCardElement.dataset.language;
+      const adult = movieCardElement.dataset.adult;
+      const releaseDate = movieCardElement.dataset.releaseDate;
+      const popularity = movieCardElement.dataset.popularity;
+      const voteCount = movieCardElement.dataset.voteCount;
+      const id = movieCardElement.dataset.id;
+      const overview = movieCardElement.dataset.overview;
+      const title = movieCardElement.dataset.title;
+      const posterPath = movieCardElement.dataset.posterPath;
+
+      const queryString = `originalTitle=${encodeURIComponent(originalTitle)}&vote=${encodeURIComponent(vote)}&language=${encodeURIComponent(language)}&adult=${encodeURIComponent(adult)}&releaseDate=${encodeURIComponent(releaseDate)}&popularity=${encodeURIComponent(popularity)}&voteCount=${encodeURIComponent(voteCount)}&id=${encodeURIComponent(id)}&overview=${encodeURIComponent(overview)}&title=${encodeURIComponent(title)}&posterPath=${encodeURIComponent(posterPath)}`;
+
+      window.location.href = `receving.html?${queryString}`;
+    }
+    displayMovieCards();
+  </script>
+
+</body>
+</html>
+

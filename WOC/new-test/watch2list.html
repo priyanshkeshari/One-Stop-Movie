@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Wishlist</title>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js"></script>
+</head>
+<body>
+
+<h1>Movie Details</h1>
+<p>Title: <span id="movieTitle">Movie Title</span></p>
+<p>Genre: <span id="movieGenre">Movie Genre</span></p>
+<button onclick="addToWishlist()">Add to Wishlist</button>
+
+<!-- Initialize Firebase -->
+<script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyABXG2VmTw80woZUq6TQD8Xc84fiYrpIF8",
+  authDomain: "auth-form-de806.firebaseapp.com",
+  projectId: "auth-form-de806",
+  storageBucket: "auth-form-de806.appspot.com",
+  messagingSenderId: "900423098287",
+  appId: "1:900423098287:web:cde7d1384a0c2886f7d95a"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the Firestore database
+    const db = firebase.firestore();
+
+    // Sample movie data (replace with your own data)
+    const movieData = {
+        title: "Inception",
+        genre: "Sci-Fi"
+    };
+
+    // Display movie details
+    document.getElementById("movieTitle").innerText = movieData.title;
+    document.getElementById("movieGenre").innerText = movieData.genre;
+
+    // Function to add movie to the wishlist
+    function addToWishlist() {
+        // Add the movie data to the 'wishlist' collection in Firestore
+        db.collection("wishlist").add(movieData)
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+                alert("Movie added to wishlist!");
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+                alert("Failed to add movie to wishlist. Please try again.");
+            });
+    }
+</script>
+
+</body>
+</html>

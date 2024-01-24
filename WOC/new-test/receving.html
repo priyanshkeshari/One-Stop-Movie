@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Page</title>
+  <style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+:root {
+    --red: #ef233c;
+    --darkred: #c00424;
+    --platinum: #e5e5e5;
+    --black: #2b2d42;
+    --white: #fff;
+    --thumb: #edf2f4;
+    --webcolor: #FDE5D9;
+    --rate: #ffd710;
+}
+
+  body {
+    height: 100vh;
+    background: linear-gradient(120deg,#000000 50%, #c00424 50%);
+  }
+  .container {
+    width: 90vw;
+    max-width: 37.5em;
+    padding: 3em 1.8em;
+    background-color: #201f28;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    box-shadow: 1.5em 3em 3em rgba(0, 0, 0, 0.3);
+  }
+  
+ .container .top{
+    color: var(--white);
+    font-size: 1.6em;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -26px;
+ }
+
+  .info {
+    position: relative;
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    align-items: center;
+    margin-top: 1.2em;
+  }
+  .poster {
+    width: 100%;
+  }
+ .container .info div h2 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #e5e5e5;
+    padding: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    margin: 0.6em 0 0.9em 0;
+    color: var(--rate);
+  }
+  .rating h4 i {
+    width: 1.2em;
+    margin-right: 2px;
+  }
+  .rating h4 {
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-right: 20px;
+  }
+.rating h5{
+    color: rgb(5, 234, 35);
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.details {
+    display: flex;
+    font-size: 0.95em;
+    gap: 1em;
+    justify-content: center;
+    color: #a0a0a0;
+    margin: 0.6em 0;
+    font-weight: 300;
+  }
+.details span{
+    backdrop-filter: blur(4px);
+    padding: 4px;
+}
+
+  .about {
+    display: flex;
+    justify-content: space-around;
+    color: var(--thumb);
+  }
+  .about div {
+    border: 1px solid #a0a0a0;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 0.4em;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .about div div{
+    border: none;
+    font-size: 10px;
+    text-align: center;
+  }
+ .container h3 {
+    font-weight: 500;
+    margin-top: 1.2em;
+    color: var(--webcolor);
+  }
+ .container p {
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.8em;
+    text-align: justify;
+    color: var(--platinum);
+  }
+  
+  @media screen and (max-width: 600px) {
+    .container {
+      font-size: 15px;
+      overflow-y: auto;
+      height: fit-content;
+      transform: translate3d(-50%,-38%,0);
+    }
+    .info {
+      grid-template-columns: 1fr;
+    }
+    .poster {
+      margin: auto;
+      width: auto;
+      max-height: 20em;
+    }
+  }
+
+  @media screen and (max-width: 370px) {
+    .container {
+      font-size: 15px;
+      overflow-y: auto;
+      height: fit-content;
+      transform: translate3d(-50%,-34%,0);
+    }
+    .info {
+      grid-template-columns: 1fr;
+    }
+    .container .info div .details{
+        display: block;
+        text-align: center;
+    }
+    .container .info div .about{
+        display: block;
+    }
+    .container .info div .about{
+        margin-bottom: 4px;
+    }
+
+    .poster {
+      margin: auto;
+      width: auto;
+      max-height: 20em;
+    }
+    
+  }
+  
+  @media screen and (max-width: 290px) {
+    .container {
+      font-size: 15px;
+      overflow-y: auto;
+      height: fit-content;
+      transform: translate3d(-50%,-34%,0);
+      padding: 32px 0 10px 0;
+      overflow-x: hidden;
+    }
+
+    .container .top{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .info {
+      grid-template-columns: 1fr;
+    }
+    .container .info div .details{
+        display: block;
+        text-align: center;
+    }
+    .container .info div .about{
+        display: block;
+    }
+    .container .info div .about{
+        margin-bottom: 4px;
+        padding: 5px 10px;
+    }
+    .container .info div .about div{
+        padding: 4px 0 4px 0;
+    }
+
+    .poster {
+      margin: auto;
+      width: auto;
+      max-height: 20em;
+    }
+    
+  }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
+  crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="containerabout" id="containerhaving"> 
+      
+    </div>
+
+  <script>
+
+    const img_path = 'https://image.tmdb.org/t/p/w500';
+
+    
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    const originalTitle = getParameterByName('originalTitle');
+    const vote = getParameterByName('vote');
+    const language = getParameterByName('language');
+    const adult = getParameterByName('adult');
+    const releaseDate = getParameterByName('releaseDate');
+    const popularity = getParameterByName('popularity');
+    const voteCount = getParameterByName('voteCount');
+    const id = getParameterByName('id');
+    const overview = getParameterByName('overview');
+    const title = getParameterByName('title');
+    const posterPath = getParameterByName('posterPath');
+
+    const containerhaving = document.getElementById('containerhaving');
+    const containerid = document.createElement('div');
+    containerid.classList.add('container')
+    containerid.innerHTML = `
+    <div id="aboutinside" class="containerinside">
+        <div class="top">
+            <i class="bi bi-badge-4k"></i>
+            <i class="bi bi-playstation"></i>
+        </div>
+        <div class="info">
+            <img src="${img_path + posterPath}" class="poster">
+            <div>
+                <h2>${title}</h2>
+                <div class="rating">
+                    <h4><i class="bi bi-star-fill"></i> ${vote} / 10</h4>
+                    <h5>${language}</h5>
+                </div>
+                <div class="details">
+                    <span>Adult : ${adult}</span>
+                    <span>${releaseDate}</span>
+                </div>
+                <div class="about">
+                    <div>Popularity<div>${popularity}</div></div>
+                    <div>Vote Count<div>${voteCount}</div></div>
+                    <div>ID<div>${id}</div></div>
+                </div>
+            </div>
+        </div>
+        <h3>Overview:</h3>
+        <p>${overview}</p>
+        <h3>Title:</h3>
+        <p>${originalTitle}</p>
+    </div>
+    `;
+    containerhaving.appendChild(containerid);
+   
+
+    
+  </script>
+
+</body>
+</html>

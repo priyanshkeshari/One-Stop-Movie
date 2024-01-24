@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDb Search</title>
+    <style>
+        #searchInput {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #results {
+            margin-top: 20px;
+        }
+
+        .movie {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="searchInput">Search for a movie:</label>
+        <input type="text" id="searchInput" placeholder="Enter movie title">
+        <button onclick="searchMovies()">Search</button>
+    </div>
+
+    <div id="results"></div>
+
+    <script>
+        function searchMovies() {
+            const searchInput = document.getElementById('searchInput').value;
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=64aaf7502b09faf378927950ce658ad3&query=${searchInput}`;
+
+        
+            fetch(url)
+                .then(response => response.json())
+                .then(data => displayResults(data.results))
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            results.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.classList.add('movie');
+                movieElement.innerHTML = `
+                    <h2>${movie.title}</h2>
+                    <p>${movie.overview}</p>
+                    <p>Release Date: ${movie.release_date}</p>
+                    
+                `;
+                resultsContainer.appendChild(movieElement);
+            });
+        }
+    </script>
+
+</body>
+</html>

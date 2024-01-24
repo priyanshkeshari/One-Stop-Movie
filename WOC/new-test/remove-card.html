@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+  <title>Remove Card Example</title>
+</head>
+<body>
+  <div class="card" id="myCard">
+    <h2>Card Content</h2>
+    <p>This is some content inside the card.</p>
+    <button onclick="removeCard()">Remove Card</button>
+  </div>
+
+  <script>
+    
+    function removeCard() {
+      var card = document.getElementById('myCard');
+      if (card) {
+        card.remove();
+        console.log("card removed")
+      }
+    }
+
+  </script>
+
+</body>
+</html>
